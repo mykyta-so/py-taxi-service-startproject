@@ -1,5 +1,3 @@
-from typing import Self
-
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
@@ -9,7 +7,7 @@ class Manufacturer(models.Model):
     name = models.CharField(unique=True, max_length=255)
     country = models.CharField(max_length=255)
 
-    def __str__(self: Self) -> str:
+    def __str__(self) -> str:
         return f"{self.name} ({self.country})"
 
 
@@ -29,5 +27,5 @@ class Car(models.Model):
         related_name='cars',
     )
 
-    def __str__(self: Self) -> str:
+    def __str__(self) -> str:
         return F"{self.model} {self.manufacturer} {self.drivers}"
